@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="COBERTURA 360 - Cobertura que transforma, calidad que perdura. Servicios profesionales de mantenimiento de inmuebles en Playa del Carmen.">
+    <title>COBERTURA 360 | Servicios Profesionales de Mantenimiento</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1e3a8a',
+                            dark: '#1e40af',
+                        },
+                        accent: {
+                            DEFAULT: '#10b981',
+                            dark: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #1e3a8a 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo - PUEDES CAMBIAR EL TEXTO AQUÍ -->
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">C360</span>
+                </div>
+                <span class="font-display font-bold text-xl text-gray-900 dark:text-white">COBERTURA 360</span>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#servicios" class="hover:text-accent transition-colors">Servicios</a>
+                <a href="#contacto" class="hover:text-accent transition-colors">Contacto</a>
+                
+                <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+                
+                <a href="#contacto" class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full font-semibold hover:shadow-xl transition-all transform hover:scale-105">
+                    Cotizar Ahora
+                </a>
+            </div>
+            
+            <button id="mobileMenuBtn" class="md:hidden p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#servicios" class="hover:text-accent transition-colors">Servicios</a>
+                <a href="#contacto" class="hover:text-accent transition-colors">Contacto</a>
+                <a href="#contacto" class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full font-semibold text-center">
+                    Cotizar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=80" alt="Pintura profesional" class="w-full h-full object-cover opacity-20 dark:opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center">
+            <!-- PUEDES CAMBIAR TODO EL CONTENIDO DEL HERO AQUÍ -->
+            <h1 class="font-display font-bold text-5xl md:text-7xl mb-6 fade-in-up">
+                <span class="gradient-text">Cobertura que transforma,</span><br>
+                <span class="text-gray-900 dark:text-white">calidad que perdura.</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto fade-in-up delay-100">
+                Servicios profesionales de mantenimiento de inmuebles en Playa del Carmen. Transformamos espacios con excelencia y compromiso.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-200">
+                <a href="#contacto" class="bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                    Solicitar Cotización
+                </a>
+                <a href="#servicios" class="glass text-gray-900 dark:text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all">
+                    Conocer Servicios
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <!-- PUEDES CAMBIAR LOS NÚMEROS Y TEXTOS AQUÍ -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in-up">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">500+</div>
+                    <div class="text-gray-600 dark:text-gray-400">Proyectos Completados</div>
+                </div>
+                <div class="fade-in-up delay-100">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">98%</div>
+                    <div class="text-gray-600 dark:text-gray-400">Clientes Satisfechos</div>
+                </div>
+                <div class="fade-in-up delay-200">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">10+</div>
+                    <div class="text-gray-600 dark:text-gray-400">Años de Experiencia</div>
+                </div>
+                <div class="fade-in-up delay-300">
+                    <div class="text-4xl md:text-5xl font-bold gradient-text mb-2">24/7</div>
+                    <div class="text-gray-600 dark:text-gray-400">Soporte Disponible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Servicios -->
+    <section id="servicios" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4 gradient-text">Nuestros Servicios</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Soluciones profesionales para el mantenimiento y embellecimiento de tu propiedad</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="glass rounded-2xl p-8 hover:shadow-2xl transition-all transform hover:scale-105 fade-in-up">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="paintbrush" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4">Pintura Profesional</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">Interiores y exteriores con acabados impecables. Utilizamos productos de la más alta calidad para garantizar durabilidad y belleza en cada proyecto.</p>
+                    <a href="#contacto" class="text-accent font-semibold flex items-center gap-2 hover:gap-4 transition-all">
+                        Más información <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="glass rounded-2xl p-8 hover:shadow-2xl transition-all transform hover:scale-105 fade-in-up delay-100">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4">Impermeabilización</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">Alta resistencia contra filtraciones y humedad. Protegemos tu inversión con sistemas de impermeabilización de última generación.</p>
+                    <a href="#contacto" class="text-accent font-semibold flex items-center gap-2 hover:gap-4 transition-all">
+                        Más información <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="glass rounded-2xl p-8 hover:shadow-2xl transition-all transform hover:scale-105 fade-in-up delay-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="sparkles" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-2xl mb-4">Acabados Decorativos</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">Recubrimientos especiales que dan personalidad a tus espacios. Texturas, efectos y diseños únicos adaptados a tu estilo.</p>
+                    <a href="#contacto" class="text-accent font-semibold flex items-center gap-2 hover:gap-4 transition-all">
+                        Más información <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4 gradient-text">Solicita tu Cotización</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">Déjanos tus datos y nos pondremos en contacto contigo</p>
+            </div>
+            
+            <div class="glass rounded-2xl p-8 md:p-12">
+                <form id="contactForm" class="space-y-6">
+                    <!-- IMPORTANTE: NO CAMBIAR LOS ATRIBUTOS "name" DE LOS INPUTS -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="email">Email *</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="telefono">WhatsApp *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+52" class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="interes">Servicio de Interés *</label>
+                            <select id="interes" name="interes" required class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none transition-colors">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="Pintura Profesional">Pintura Profesional</option>
+                                <option value="Impermeabilización">Impermeabilización</option>
+                                <option value="Acabados Decorativos">Acabados Decorativos</option>
+                                <option value="Consultoría General">Consultoría General</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold mb-2" for="mensaje">Mensaje (Opcional)</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:border-accent focus:outline-none transition-colors"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transition-all transform hover:scale-105">
+                        Enviar Solicitud
+                    </button>
+                    
+                    <div id="formStatus" class="hidden text-center p-4 rounded-lg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-display font-bold text-xl mb-4">COBERTURA 360</h3>
+                    <p class="text-gray-400">Cobertura que transforma, calidad que perdura.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p>Playa del Carmen, Quintana Roo</p>
+                        <p>+52 984 409 7387</p>
+                        <p>mnttocobertura.360@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#servicios" class="hover:text-accent transition-colors">Pintura Profesional</a></li>
+                        <li><a href="#servicios" class="hover:text-accent transition-colors">Impermeabilización</a></li>
+                        <li><a href="#servicios" class="hover:text-accent transition-colors">Acabados Decorativos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="showLegal('privacidad'); return false;" class="hover:text-accent transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" onclick="showLegal('terminos'); return false;" class="hover:text-accent transition-colors">Términos de Servicio</a></li>
+                        <li><a href="#" onclick="showLegal('eliminacion'); return false;" class="hover:text-accent transition-colors">Eliminación de Datos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 COBERTURA 360. Representante Legal: Gaspar Díaz Trejo. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/529844097387?text=Hola,%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios" target="_blank" class="fixed bottom-6 right-6 z-50 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+    </a>
+    
+    <!-- Modal Legal -->
+    <div id="legalModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div class="fixed inset-0 bg-black opacity-75" onclick="closeLegal()"></div>
+            
+            <div class="relative bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 z-10">
+                <button onclick="closeLegal()" class="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+                
+                <div id="legalContent"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.classList.toggle('dark', currentTheme === 'dark');
+        
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            lucide.createIcons();
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Form Submission
+        // IMPORTANTE: CAMBIA ESTA URL POR TU WEBHOOK REAL DE MAKE.COM
+        const WEBHOOK_URL = 'https://hook.us2.make.com/ejemplo';
+        
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formStatus = document.getElementById('formStatus');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i data-lucide="loader" class="w-5 h-5 inline animate-spin mr-2"></i> Enviando...';
+            lucide.createIcons();
+            
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                interes: document.getElementById('interes').value,
+                mensaje: document.getElementById('mensaje').value || 'Sin mensaje adicional',
+                fecha: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    formStatus.className = 'text-center p-4 rounded-lg bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200';
+                    formStatus.textContent = '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.';
+                    formStatus.classList.remove('hidden');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    throw new Error('Error en el servidor');
+                }
+            } catch (error) {
+                formStatus.className = 'text-center p-4 rounded-lg bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200';
+                formStatus.textContent = 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o contáctanos por WhatsApp.';
+                formStatus.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Enviar Solicitud';
+                
+                setTimeout(() => {
+                    formStatus.classList.add('hidden');
+                }, 5000);
+            }
+        });
+        
+        // Legal Content - SPA Navigation
+        const legalContent = {
+            privacidad: `
+                <h2 class="font-display font-bold text-3xl mb-6">Política de Privacidad</h2>
+                
+                <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p><strong>Última actualización:</strong> Diciembre 2024</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">1. Información que Recopilamos</h3>
+                    <p>COBERTURA 360, con domicilio en Playa del Carmen, Quintana Roo, representada por Gaspar Díaz Trejo, recopila la siguiente información:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Nombre completo</li>
+                        <li>Dirección de correo electrónico</li>
+                        <li>Número de teléfono/WhatsApp</li>
+                        <li>Información sobre el servicio de interés</li>
+                        <li>Mensajes y comunicaciones</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">2. Uso de la Información</h3>
+                    <p>Utilizamos tu información para:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Responder a tus consultas y solicitudes de cotización</li>
+                        <li>Proporcionar y mejorar nuestros servicios</li>
+                        <li>Enviar comunicaciones sobre nuestros servicios</li>
+                        <li>Cumplir con obligaciones legales</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">3. Cookies y Tecnologías de Seguimiento</h3>
+                    <p>Nuestro sitio web puede utilizar cookies y tecnologías similares, incluyendo:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Cookies de sesión para el funcionamiento del sitio</li>
+                        <li>Píxel de Facebook para análisis y remarketing (si aplica)</li>
+                        <li>Google Analytics para métricas de tráfico</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">4. Compartir Información</h3>
+                    <p>No vendemos ni compartimos tu información personal con terceros, excepto:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Cuando sea requerido por ley</li>
+                        <li>Con proveedores de servicios que nos ayudan a operar nuestro negocio (bajo acuerdos de confidencialidad)</li>
+                        <li>Para proteger nuestros derechos legales</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">5. Cumplimiento Legal</h3>
+                    <p>Esta política cumple con:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>LFPDPPP (México):</strong> Ley Federal de Protección de Datos Personales en Posesión de los Particulares</li>
+                        <li><strong>GDPR (UE):</strong> Reglamento General de Protección de Datos (si aplica)</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">6. Tus Derechos</h3>
+                    <p>Tienes derecho a:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Acceder a tu información personal</li>
+                        <li>Rectificar datos incorrectos</li>
+                        <li>Cancelar tu información</li>
+                        <li>Oponerte al uso de tus datos</li>
+                        <li>Solicitar la eliminación de tu información (ver sección de Eliminación de Datos)</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">7. Seguridad</h3>
+                    <p>Implementamos medidas de seguridad técnicas y administrativas para proteger tu información contra acceso no autorizado, pérdida o alteración.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">8. Contacto</h3>
+                    <p>Para ejercer tus derechos o hacer consultas sobre esta política:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Email: mnttocobertura.360@gmail.com</li>
+                        <li>WhatsApp: +52 984 409 7387</li>
+                        <li>Responsable: Gaspar Díaz Trejo</li>
+                    </ul>
+                </div>
+            `,
+            terminos: `
+                <h2 class="font-display font-bold text-3xl mb-6">Términos de Servicio</h2>
+                
+                <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p><strong>Última actualización:</strong> Diciembre 2024</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">1. Aceptación de Términos</h3>
+                    <p>Al utilizar el sitio web de COBERTURA 360 y solicitar nuestros servicios, aceptas estos Términos de Servicio. Si no estás de acuerdo, por favor no utilices nuestros servicios.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">2. Descripción de Servicios</h3>
+                    <p>COBERTURA 360 ofrece servicios profesionales de mantenimiento de inmuebles, incluyendo:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Pintura profesional de interiores y exteriores</li>
+                        <li>Impermeabilización de alta resistencia</li>
+                        <li>Acabados decorativos y recubrimientos especiales</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">3. Cotizaciones y Contratación</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Las cotizaciones proporcionadas son estimadas y pueden variar según evaluación in situ</li>
+                        <li>Los precios están sujetos a cambios sin previo aviso</li>
+                        <li>Los contratos de servicio se formalizan por escrito</li>
+                        <li>Se requiere anticipo según lo acordado en la cotización</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">4. Responsabilidades del Cliente</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Proporcionar acceso adecuado al área de trabajo</li>
+                        <li>Informar sobre cualquier condición especial de la propiedad</li>
+                        <li>Realizar los pagos según lo acordado</li>
+                        <li>Permitir inspecciones previas al inicio de trabajos</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">5. Responsabilidades de COBERTURA 360</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Realizar trabajos con personal calificado</li>
+                        <li>Utilizar materiales de calidad</li>
+                        <li>Cumplir con los tiempos acordados (salvo causas de fuerza mayor)</li>
+                        <li>Garantizar nuestros servicios según lo especificado en cada contrato</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">6. Garantías</h3>
+                    <p>Ofrecemos garantías específicas para cada tipo de servicio, las cuales serán detalladas en el contrato individual. Las garantías no cubren:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Daños causados por el cliente o terceros</li>
+                        <li>Desgaste normal por uso</li>
+                        <li>Problemas estructurales preexistentes no informados</li>
+                        <li>Desastres naturales o casos de fuerza mayor</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">7. Cancelaciones y Reembolsos</h3>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Las cancelaciones deben notificarse con al menos 48 horas de anticipación</li>
+                        <li>Los anticipos no son reembolsables si el trabajo ya ha iniciado</li>
+                        <li>Cada caso se evaluará individualmente</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">8. Propiedad Intelectual</h3>
+                    <p>Todo el contenido de este sitio web, incluyendo diseños, textos, gráficos y logos, es propiedad de COBERTURA 360 y está protegido por las leyes de propiedad intelectual.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">9. Limitación de Responsabilidad</h3>
+                    <p>COBERTURA 360 no será responsable por daños indirectos, incidentales o consecuentes que surjan del uso de nuestros servicios, salvo lo establecido por ley.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">10. Modificaciones</h3>
+                    <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor al ser publicadas en este sitio.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">11. Ley Aplicable</h3>
+                    <p>Estos términos se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier disputa se resolverá en los tribunales de Playa del Carmen, Quintana Roo.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">12. Contacto</h3>
+                    <p>Para preguntas sobre estos términos:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Email: mnttocobertura.360@gmail.com</li>
+                        <li>WhatsApp: +52 984 409 7387</li>
+                        <li>Representante Legal: Gaspar Díaz Trejo</li>
+                    </ul>
+                </div>
+            `,
+            eliminacion: `
+                <h2 class="font-display font-bold text-3xl mb-6">Eliminación de Datos</h2>
+                
+                <div class="space-y-4 text-gray-600 dark:text-gray-400">
+                    <p><strong>Última actualización:</strong> Diciembre 2024</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">Requisito de Meta Developers</h3>
+                    <p>Esta página cumple con los requisitos de Meta (Facebook) para aplicaciones que recopilan datos de usuarios. Si has interactuado con nosotros a través de plataformas de Meta o has proporcionado tus datos personales, tienes derecho a solicitar su eliminación.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">1. ¿Qué Datos Almacenamos?</h3>
+                    <p>COBERTURA 360 puede almacenar la siguiente información:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Nombre completo</li>
+                        <li>Dirección de correo electrónico</li>
+                        <li>Número de teléfono/WhatsApp</li>
+                        <li>Historial de comunicaciones y consultas</li>
+                        <li>Información sobre servicios solicitados</li>
+                        <li>Datos de interacción con nuestras plataformas digitales</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">2. Tu Derecho a la Eliminación</h3>
+                    <p>Según la LFPDPPP (México) y el GDPR (si aplica), tienes derecho a solicitar la eliminación completa de tus datos personales de nuestros sistemas, excepto cuando:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Exista una obligación legal de retener la información</li>
+                        <li>Sea necesario para cumplir con un contrato vigente</li>
+                        <li>Existan disputas legales pendientes</li>
+                        <li>Se requiera para cumplir con obligaciones fiscales (SAT)</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">3. Cómo Solicitar la Eliminación</h3>
+                    <p>Para solicitar la eliminación de tus datos, sigue estos pasos:</p>
+                    
+                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg my-4">
+                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-3">Opción 1: Por Email</h4>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Envía un correo a: <strong>mnttocobertura.360@gmail.com</strong></li>
+                            <li>Asunto: "Solicitud de Eliminación de Datos"</li>
+                            <li>Incluye: Tu nombre completo, email y número de teléfono registrado</li>
+                            <li>Especifica qué datos deseas eliminar</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg my-4">
+                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-3">Opción 2: Por WhatsApp</h4>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Envía un mensaje a: <strong>+52 984 409 7387</strong></li>
+                            <li>Indica: "Solicito la eliminación de mis datos personales"</li>
+                            <li>Proporciona tu nombre completo y email para verificación</li>
+                        </ol>
+                    </div>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">4. Proceso de Eliminación</h3>
+                    <p>Una vez recibida tu solicitud:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Verificación:</strong> Confirmaremos tu identidad (1-2 días hábiles)</li>
+                        <li><strong>Evaluación:</strong> Revisaremos si existen obligaciones legales que impidan la eliminación (2-3 días hábiles)</li>
+                        <li><strong>Eliminación:</strong> Procederemos a eliminar tus datos de nuestros sistemas (5-10 días hábiles)</li>
+                        <li><strong>Confirmación:</strong> Te enviaremos una confirmación por escrito de la eliminación</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">5. Qué se Elimina</h3>
+                    <p>Al aprobar tu solicitud, eliminaremos:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Toda información personal identificable de nuestras bases de datos</li>
+                        <li>Historial de comunicaciones (emails, mensajes)</li>
+                        <li>Datos de contacto y preferencias</li>
+                        <li>Registros de interacción con nuestros servicios digitales</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">6. Datos que No Podemos Eliminar</h3>
+                    <p>Por obligaciones legales, fiscales y contables, debemos retener:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Facturas y documentos fiscales (requisito del SAT - 5 años mínimo)</li>
+                        <li>Contratos firmados y documentos legales</li>
+                        <li>Información necesaria para cumplir con auditorías</li>
+                        <li>Datos relacionados con disputas legales activas</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">7. Consecuencias de la Eliminación</h3>
+                    <p>Al eliminar tus datos:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>No podremos procesar solicitudes futuras sin que proporciones tus datos nuevamente</li>
+                        <li>Perderás acceso a cualquier historial de servicios previos</li>
+                        <li>No recibirás comunicaciones ni actualizaciones</li>
+                        <li>Cualquier garantía podría verse afectada si no podemos verificar el servicio</li>
+                    </ul>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">8. Eliminación de Datos de Terceros</h3>
+                    <p>Si tus datos fueron compartidos con plataformas de terceros (Meta/Facebook, Google, sistemas CRM), deberás solicitar la eliminación directamente a esas plataformas. Nosotros eliminaremos únicamente los datos bajo nuestro control directo.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">9. Plazos Legales</h3>
+                    <p>Según la legislación mexicana (LFPDPPP), el plazo máximo para atender tu solicitud es de <strong>20 días hábiles</strong> desde su recepción. Te mantendremos informado durante todo el proceso.</p>
+                    
+                    <h3 class="font-semibold text-xl text-gray-900 dark:text-white mt-6 mb-3">10. Contacto y Preguntas</h3>
+                    <p>Si tienes dudas sobre el proceso de eliminación de datos:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Email:</strong> mnttocobertura.360@gmail.com</li>
+                        <li><strong>WhatsApp:</strong> +52 984 409 7387</li>
+                        <li><strong>Responsable:</strong> Gaspar Díaz Trejo</li>
+                        <li><strong>Ubicación:</strong> Playa del Carmen, Quintana Roo, México</li>
+                    </ul>
+                    
+                    <div class="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500 p-6 my-6">
+                        <p class="text-gray-800 dark:text-gray-200"><strong>Nota Importante:</strong> Esta página cumple con los requisitos de Meta Developers para la eliminación de datos de usuarios. Si llegaste aquí desde una aplicación de Meta/Facebook, puedes estar seguro de que tus derechos están protegidos según las regulaciones internacionales de privacidad.</p>
+                    </div>
+                </div>
+            `
+        };
+        
+        function showLegal(type) {
+            const modal = document.getElementById('legalModal');
+            const content = document.getElementById('legalContent');
+            
+            content.innerHTML = legalContent[type];
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        }
+        
+        function closeLegal() {
+            const modal = document.getElementById('legalModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLegal();
+            }
+        });
+    </script>
+</body>
+</html>
